@@ -71,6 +71,7 @@ public class reservationController {
 			int res = reservationService.res_insert(vo);
 			
 			if(res > 0) {
+				redirectAttributes.addFlashAttribute("successMessage", "예약이 완료되었습니다!");
 				return new RedirectView("main");
 			}
 		} catch (DataIntegrityViolationException e) {					// 이미 DB에 값이 존재할 경우

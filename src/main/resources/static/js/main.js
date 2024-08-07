@@ -9,7 +9,7 @@
 			window.location.href = "/myPage_form";
 		});
 
-		let $logoutButton = $("input[name='logout']");
+		let $logoutButton = $("div[name='logout']");
 		$logoutButton.on("click", function() {
 			location.href = "/logout";
 		});
@@ -27,5 +27,9 @@
 			}
 		});
 	});
+	
+	if (document.getElementById('success-message') != null) {
+		alert("예약이 완료되었습니다!");
+	}
 	
 	

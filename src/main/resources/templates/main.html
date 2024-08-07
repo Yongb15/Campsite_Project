@@ -22,6 +22,7 @@
 
 	<!-- 메인 콘텐츠 -->
 	<main>
+	<div id="success-message" th:if="${successMessage != null}"></div>
 		<!-- 왼쪽 중단: 로그인/회원가입 및 이벤트 게시판 -->
 		<div class="left-section">
 			<div class="auth-section">
@@ -31,8 +32,8 @@
 					<div class="signup">회원가입</div>
 				</th:block>
 				<th:block th:unless="${session.id == null}">		<!-- 로그인이 되었는지 확인 -->
-					<div class="myPage" name="myPage">마이페이지</div>
-					<input type="button" value="로그아웃" name="logout">
+					<div class="mypage_a" name="myPage">마이페이지</div>
+					<div class="logout_a" name="logout">로그아웃</div>
 				</th:block>
 			</div>
 			<div class="events">
@@ -54,8 +55,6 @@
 						<img src="/img/3.jpg" alt="Photo 3" class="slide">
 						<!-- 추가 사진이 여기에 추가될 수 있습니다 -->
 					</div>
-					<button class="button prev">&lt;</button>
-					<button class="button next">&gt;</button>
 				</div>
 			</div>
 		</div>

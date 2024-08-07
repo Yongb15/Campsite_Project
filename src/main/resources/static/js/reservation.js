@@ -4,6 +4,7 @@
 		var errorMessage = errorMessageElement.textContent || errorMessageElement.innerText;			// 컨트롤러에서 에러 메세지 가져오기
 		console.log('Error Message:', errorMessage); // 콘솔에서 확인
 	}
+
 	
 	// 가격
 	function updatePrice() {
