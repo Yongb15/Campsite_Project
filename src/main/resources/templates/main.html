@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캠핑장 웹사이트</title>
+<link th:href="@{/css/main.css}" rel="stylesheet" /> 
+</head>
+<body data-session-id="/*[[${session.id}]]*/">
+	<!-- 헤더: 로고와 메뉴를 포함 -->
+	<header>
+		<a href="main">
+			<div class="logo">짱구 캠핑장!</div>
+		</a>
+		<nav class="menu">
+			<a href="notice_board">공지사항</a>
+			<a href="reservation_form" id="reservation-link">예약하기</a>			<!-- 이것만 가져가기 -->
+			<a href="#contact">문의하기</a>
+			<a href="#events">이벤트</a>
+		</nav>
+	</header>
+
+	<!-- 메인 콘텐츠 -->
+	<main>
+		<!-- 왼쪽 중단: 로그인/회원가입 및 이벤트 게시판 -->
+		<div class="left-section">
+			<div class="auth-section">
+				<h2>회원 관리</h2>
+				<th:block th:if="${session.id == null}">			<!-- 로그인이 되었는지 확인 -->
+					<div class="login" name="login_form">로그인</div>
+					<div class="signup">회원가입</div>
+				</th:block>
+				<th:block th:unless="${session.id == null}">		<!-- 로그인이 되었는지 확인 -->
+					<div class="myPage" name="myPage">마이페이지</div>
+					<input type="button" value="로그아웃" name="logout">
+				</th:block>
+			</div>
+			<div class="events">
+				<h2>이벤트 게시판</h2>
+				<div class="events-list">
+					<!-- 이벤트 항목 -->
+				</div>
+			</div>
+		</div>
+
+		<!-- 오른쪽 중단: 사진 슬라이더 -->
+		<div class="right-section">
+			<div class="photo-slider" style="height: 705px;">
+				<!-- 슬라이드 이미지 컨테이너 -->
+				<div class="slider-container">
+					<div class="slides">
+						<img src="/img/1.jpg" alt="Photo 1" class="slide">
+						<img src="/img/2.jpg" alt="Photo 2" class="slide">
+						<img src="/img/3.jpg" alt="Photo 3" class="slide">
+						<!-- 추가 사진이 여기에 추가될 수 있습니다 -->
+					</div>
+					<button class="button prev">&lt;</button>
+					<button class="button next">&gt;</button>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- 하단: 문의사항 전화번호와 현재 날씨 -->
+	<footer>
+		<div class="contact">
+			<p>
+				문의사항이 있으면 전화해 주세요: <a href="tel:010-1234-5678">+123456789</a>
+			</p>
+		</div>
+		<div class="weather">
+			<p>
+				현재 날씨: <span id="weather-info">정보 로딩 중...</span>
+			</p>
+		</div>
+	</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/main.js}" th:inline="javascript"></script>
+</html>

@@ -1,0 +1,207 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+	font-family: 'GowunBatang-Regular';
+}
+/* 기본 스타일 설정 */
+body {
+	font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+	margin: 0; /* 기본 여백 제거 */
+	padding: 0; /* 기본 패딩 제거 */
+	box-sizing: border-box; /* 박스 모델을 border-box로 설정 */
+	background-color: #f9f9f9; /* 페이지 배경 색상 설정 */
+}
+/* 헤더 스타일 */
+header {
+	display: flex; /* 플렉스 박스 레이아웃을 사용하여 요소 정렬 */
+	justify-content: space-between; /* 로고와 메뉴를 좌우로 분리 */
+	align-items: center; /* 수직 정렬 */
+	padding: 15px 30px; /* 패딩 설정 */
+	background-color: #232323; /* 헤더 배경 색상 */
+	color:white; /* 텍스트 색상 */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.logo {
+	font-size: 28px; /* 로고 텍스트의 폰트 크기 */
+	font-weight: bold; /* 로고 텍스트를 굵게 */
+	transition: color 0.3s;
+	cursor: pointer;
+}
+.logo:hover {
+	color: #DB005B;
+}
+.menu a {
+	padding: 10px;
+	border-radius: 18px;
+	text-decoration: none; /* 링크 기본 밑줄 제거 */
+	color: white; /* 링크 텍스트 색상 */
+	font-size: 18px; /* 링크 텍스트 폰트 크기 */
+	transition: color 0.3s ease;
+}
+.menu a:hover {
+	color: #DB005B;
+}
+/* 메인 콘텐츠 스타일 */
+main {
+	background-color: #565656;
+	display: flex; /* 플렉스 박스 레이아웃을 사용하여 요소 정렬 */
+	padding: 20px; /* 패딩 설정 */
+	height: 730px;
+}
+/* 왼쪽 섹션 스타일 */
+.left-section {
+	flex: 1; /* 왼쪽 섹션의 가변 폭 설정 */
+	padding-right: 20px; /* 오른쪽 패딩 */
+}
+.auth-section {
+	background-color: #232323; /* 배경 색상 설정 */
+	padding: 15px; /* 패딩 설정 */
+	border-radius: 5px; /* 모서리 둥글게 */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+	margin-bottom: 20px; /* 하단 여백 */
+	color: white;
+}
+.auth-section h2 {
+	margin-top: 0; /* 상단 여백 제거 */
+	font-size: 20px; /* 제목 폰트 크기 */
+}
+.login, .signup {
+	margin-bottom: 10px; /* 버튼 하단 여백 */
+	background-color: #565656; /* 버튼 배경 색상 */
+	color: white; /* 버튼 텍스트 색상 */
+	padding: 10px; /* 버튼 패딩 설정 */
+	border-radius: 5px; /* 버튼 모서리 둥글게 */
+	text-align: center; /* 버튼 텍스트 중앙 정렬 */
+	cursor: pointer; /* 버튼 클릭 시 커서 모양 변경 */
+	transition: background-color 0.3s;
+}
+
+.logout_a, .mypage_a {
+	margin-bottom: 10px; /* 버튼 하단 여백 */
+	background-color: #565656; /* 버튼 배경 색상 */
+	color: white; /* 버튼 텍스트 색상 */
+	padding: 10px; /* 버튼 패딩 설정 */
+	border-radius: 5px; /* 버튼 모서리 둥글게 */
+	text-align: center; /* 버튼 텍스트 중앙 정렬 */
+	cursor: pointer; /* 버튼 클릭 시 커서 모양 변경 */
+	transition: background-color 0.3s;
+}
+.logout_a:hover, .mypage_a:hover {
+	background-color: #B0B0B0; /* 버튼 호버 시 배경색 변경 */
+}
+
+.login:hover, .signup:hover {
+	background-color: #B0B0B0; /* 버튼 호버 시 배경색 변경 */
+}
+.events {
+	background-color: #232323; /* 배경 색상 설정 */
+	padding: 15px; /* 패딩 설정 */
+	border-radius: 5px; /* 모서리 둥글게 */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+	height: 500px;
+	color: white;
+}
+.events h2 {
+	margin-top: 0; /* 상단 여백 제거 */
+	font-size: 20px; /* 제목 폰트 크기 */
+}
+.events-list {
+	padding: 10px; /* 패딩 설정 */
+	background-color: #565656; /* 배경 색상 설정 */
+	height: 430px;
+	border-radius: 14px;
+}
+/* 오른쪽 섹션 스타일 */
+.right-section {
+	flex: 2; /* 오른쪽 섹션의 가변 폭 설정 */
+	position: relative; /* 슬라이더 위치를 상대적으로 설정 */
+}
+/* 사진 슬라이더 스타일 */
+.photo-slider {
+	position: relative; /* 위치 설정 */
+	width: 100%; /* 슬라이더 전체 폭 설정 */
+	height: 300px; /* 슬라이더 높이 설정 */
+	overflow: hidden; /* 넘치는 내용 숨김 */
+	background-color: white; /* 배경 색상 설정 */
+	border-radius: 5px; /* 모서리 둥글게 */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+.slides img {
+	width: 33.333%; /* 이미지 너비 설정 (슬라이드가 3장일 경우) */
+	height: 100%; /* 슬라이더 높이에 맞추어 이미지 높이 설정 */
+	object-fit: cover; /* 이미지 비율 유지 */
+	flex-shrink: 0;
+}
+button {
+	position: absolute; /* 절대 위치 설정 */
+	top: 50%; /* 수직 중앙 정렬 */
+	background-color: rgba(0, 0, 0, 0.5); /* 버튼 배경색 설정 */
+	color: white; /* 버튼 텍스트 색상 */
+	border: none; /* 버튼 테두리 제거 */
+	padding: 10px; /* 버튼 패딩 설정 */
+	cursor: pointer; /* 버튼 클릭 시 커서 모양 변경 */
+	z-index: 10; /* 버튼이 이미지 위에 위치하도록 설정 */
+	border-radius: 5px; /* 버튼 모서리 둥글게 */
+}
+/* 하단 스타일 */
+footer {
+	display: flex; /* 플렉스 박스 레이아웃을 사용하여 요소 정렬 */
+	justify-content: space-between; /* 왼쪽과 오른쪽 요소를 분리 */
+	padding: 15px 30px; /* 패딩 설정 */
+	background-color: #232323; /* 하단 배경 색상 */
+	color: white; /* 텍스트 색상 */
+}
+.contact, .weather {
+	background-color: #232323;
+	flex: 1; /* 왼쪽과 오른쪽 영역을 균등하게 설정 */
+	text-align: center; /* 텍스트 중앙 정렬 */
+	color: white;
+}
+.contact a {
+	color: white; /* 전화 링크 텍스트 색상 */
+	text-decoration: none; /* 링크 기본 밑줄 제거 */
+}
+/* 슬라이더 기본 스타일 */
+.slider-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 10px; /* 모서리 둥글게 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+}
+.slides {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+	height: 100%; /* 슬라이더 높이에 맞춤 */
+	width: 100%;
+}
+.slide{
+	object-fit: cover; /* 이미지 비율 유지 */
+	min-width: 100%;
+	width: 100%;
+	height: 100%;
+	animation: slide 10s infinite;
+}
+@keyframes slide {
+	0% { transform: translateX(0); }
+    50% { transform: translateX(-100%); }
+    100% { transform: translateX(-200%); }
+} 
+.signup_a {
+	text-decoration: none;
+}
+.login_a {
+	text-decoration: none;
+}
+.logout_a {
+	text-decoration: none;
+}
+.mypage_a{
+	text-decoration: none;
+}
