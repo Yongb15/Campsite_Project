@@ -5,7 +5,7 @@ import com.korea.test.vo.MpVO;
 public interface MpService {
 	public MpVO loginCheck(String id);
 	
-	public MpVO selectOne (int idx);
+	public MpVO findUserId(String id);
 	
-	public int customerInfo(MpVO vo);
+	public int userSave(MpVO vo);
 }

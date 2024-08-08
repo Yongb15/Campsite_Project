@@ -89,57 +89,58 @@ public class MpController {
 
 
 	@RequestMapping("/modify_mypage")
-	public String myPage(@ModelAttribute("vo") MpVO vo) {
+	public String myPage(Model model) {
+
+		MpVO vo = (MpVO)session.getAttribute("id");
+		System.out.println(vo);
+		
+		model.addAttribute("vo", vo);
+		
 		return "/board/modify_mypage";
 	}
 
 
 
-	@RequestMapping("/modiMypage")
-	public RedirectView myPage(Model model, @RequestParam(required = false, defaultValue = "1") int idx) {
-		model.addAttribute("idx", idx);
-
-		MpVO vo = mpService.selectOne(idx);
-		vo.setId("id");
-		model.addAttribute("vo", vo);
-
-		//db에 추가하기
-		int res = mpService.customerInfo(vo);
-
-		if(res > 0) {
-			return new RedirectView("/main");
-		}
-		return null;
-	}
-
-
-	@RequestMapping("/customerInfo")
+	@PostMapping("userSave")
 	@ResponseBody
-	public String cus_update(@RequestBody String body) {
-
+	public String userSave(@RequestBody String body) {
 		ObjectMapper om = new ObjectMapper();
 		Map<String, String> data = null;
-
+		
+		System.out.println(body);
+		
 		try {
-
+			//{"id" : "rururu"}
 			data = om.readValue(body, new TypeReference<Map<String,String>>(){
-
-			});
-
+		});
+			
 		} catch (Exception e) {
-
+			
 		}
-
-		int Iidx = Integer.parseInt(data.get("idx"));
-
-		MpVO vo = mpService.selectOne(Iidx);
-
-		int res = mpService.customerInfo(vo);
-
+		
+		System.out.println(data);
+		System.out.println(data.get("id"));
+		
+		MpVO vo = mpService.findUserId(data.get("id"));
+		
+		vo.setNickName(data.get("nickName"));
+		vo.setPhoneNumber(data.get("phoneNumber"));
+		vo.setEmail(data.get("email"));
+		
+		System.out.println(vo);
+		
+		
+		
+		int res = mpService.userSave(vo);
+		
+		System.out.println(res);
+		
 		if(res > 0) {
-			return "{\"param\" : \"success\"}";
+			session.setAttribute("id", vo);
+			
+			return "{\"param\":\"success\"}";
 		}
-
+		
 		return "{\"param\":\"fail\"}";
 	}
 }

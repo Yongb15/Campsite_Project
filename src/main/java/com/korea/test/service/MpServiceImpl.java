@@ -17,16 +17,14 @@ public class MpServiceImpl implements MpService{
 		
 		return mpDAO.loginCheck(id);
 	}
-	
+
 	@Override
-	public MpVO selectOne (int idx) {
-		
-		return mpDAO.selectOne(idx);
+	public MpVO findUserId(String id) {
+		return mpDAO.findUserId(id);
 	}
-	
+
 	@Override
-	public int customerInfo(MpVO vo) {
-		
-		return mpDAO.customerInfo(vo);
+	public int userSave(MpVO vo) {
+		return mpDAO.userSave(vo);
 	}
 }

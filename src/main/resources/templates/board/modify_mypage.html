@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>회원 정보 수정</title>
-
-<style type="text/css">
-
-	*{
+    <meta charset="UTF-8">
+    <title>회원 정보 수정</title>
+    <style type="text/css">
+        *{
 		font-family: 'Gowun Dodum', sans-serif;
 	}
 
@@ -36,90 +34,175 @@
 		width: 500px;
 		height: 70px;
 		font-size: 20px;
+		color: #ADC8FF;
 		
 	}
 
-</style>
-
-
+	#myId{
+		color: #4CAF50;
+		font-weight: bold;
+	}
+	
+	#myBirth{
+		color: #4CAF50;
+		font-weight: bold;
+	}
+    </style>
 </head>
 <body>
 
 <div class="container">
+    <div class="text-main">
+        <h1>회원 정보 수정</h1>
+    </div>
 
- <div class="text-main">
- 	<h1>회원 정보 수정</h1>
- </div>
+    <form class="user" th:action="@{/userSave}" method="post">
+        <input type="hidden" id="idx" name="idx" th:value="${vo.idx}">
+        
+        <div class="form-group">
+            <div class="column">
+                <input type="text" class="user-form" id="myId" name="myId"
+                       style="text-align: center;" th:value="${vo.id}" placeholder="아이디" readonly="readonly">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="column">
+                <input type="text" class="user-form" id="myName" name="myName"
+                       style="text-align: center;" th:value="${vo.nickName}" placeholder="닉네임">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="column">
+                <input type="text" class="user-form" id="myEmail" name="myEmail"
+                       style="text-align: center;" th:value="${vo.email}" placeholder="이메일">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="column">
+                <input type="text" class="user-form" id="myBirth" name="myBirth"
+                       style="text-align: center;" th:value="${vo.birth}" placeholder="생일" readonly="readonly">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="column">
+                <input type="text" class="user-form" id="myPhone" name="myPhone"
+                       style="text-align: center;" th:value="${vo.phoneNumber}" placeholder="전화번호">
+            </div>
+        </div>
+		
+        <div class="form-group">
+            <div class="column">
+            	<input type="hidden" th:value="${vo.password}" name="pwdCheck">
+                <input type="password" class="user-form" id="myPwd" name="myPwd"
+                       style="text-align: center;" placeholder="비밀번호" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="column">
+                <input type="password" class="user-form" id="inPwd" name="inPwd"
+                       style="text-align: center;" placeholder="비밀번호 확인" required>
+            </div>
+        </div>
 
+        <a href="#" class="save-btn" onclick="fSubmit();">변경사항 저장하기 &emsp;</a>
+        <a th:href="@{main}" class="btn_userMain">메인으로 가기</a>
+    </form>
+</div>
 
-
-
- <form class="user" th:action="@{/modiMypage}" name="f" th:object="${vo}" method="post">
- 
- 	<input type="hidden" class="user-form" id="idx" name="idx" value="*{idx}">
-  
- 	<div class="form-group">
- 		<div class="column">
-	 		<input type="text" class="user-form" id="myId" name="myId"
-	 		       style="text-align: center;" value="*{id}"  placeholder="아이디" readonly="readonly">
- 		</div>
- 	</div>
- 	
- 	<div class="form-group">
- 		<div class="column">
-	 		<input type="text" class="user-form" id="myName" name="myName"
-	 		       style="text-align: center;" th:field="*{nickName}"  placeholder="닉네임" >
- 		</div>
- 	</div>
- 	
- 	<div class="form-group">
- 		<div class="column">
-	 		<input type="text" class="user-form" id="myEmail" name="myEmail"
-	 		       style="text-align: center;" th:field="*{email}"  placeholder="이메일" >
- 		</div>
- 	</div>
- 
-  	<div class="form-group">
- 		<div class="column">
-	 		<input type="text" class="user-form" id="myBirth" name="myBirth"
-	 		       style="text-align: center;" th:field="*{birth}"  placeholder="생일">
- 		</div>
- 	</div> 
- 	
- 	<div class="form-group">
- 		<div class="column">
-	 		<input type="text" class="user-form" id="myPhone" name="myPhone"
-	 		       style="text-align: center;" th:field="*{phoneNumber}"  placeholder="전화번호" >
- 		</div>
- 	</div>
- 
- 
-
-  	<div class="form-group">
- 		<div class="column">
-	 		<input type="text" class="user-form" id="myPwd" name="myPwd"
-	 		       style="text-align: center;"  placeholder="비밀번호" required>
- 		</div>
- 	</div>
- 	
- 	<div class="form-group">
- 		<div class="column">
-	 		<input type="text" class="user-form" id="inPwd" name="inPwd"
-	 		       style="text-align: center;"   placeholder="비밀번호 확인" required>
- 		</div>
- 	</div>
-
- 
-  
- 	<a href="#" class="save-btn" onclick="fSubmit();" >변경사항 저장하기 &emsp;</a>
- 	<a th:href="@{main}" class="btn_userMain" >메인으로 가기</a>
- 
- 
- </form>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+function fSubmit() {
+    let id = $("input[name='myId']").val();
+    let nickName = $("input[name='myName']").val();
+    let email = $("input[name='myEmail']").val();
+    let birth = $("input[name='myBirth']").val();
+    let phoneNumber = $("input[name='myPhone']").val();
+    let pwdCheck = $("input[name='pwdCheck']").val();
+    let password = $("input[name='myPwd']").val();
+    let confirmPassword = $("input[name='inPwd']").val();
 	
-
-
-
-
+    let emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    
+	if(nickName == ''){
+		alert('이름 또는 별명을 입력하세요')
+		$("input[name='myName']").focus();
+		return;
+	}
+	
+	if(email == ''){
+		alert('이메일을 입력하세요')
+		$("input[name='myEmail']").focus();
+		return;
+	}
+	
+	if(!emailRule.test(email)){
+		alert('이메일을 형식에 맞게 입력하세요')
+		return;
+	}
+	
+	
+	if(phoneNumber == ''){
+		alert('전화번호를 (-)포함 입력하세요')
+		$("input[name='myPhone']").focus();
+		return;
+	}		
+	
+	
+	if(password == ''){
+		alert('비밀번호를 입력하세요')
+		$("input[name='myPwd']").focus();
+		return;
+	}			
+	
+	if(confirmPassword == ''){
+		alert('비밀번호 확인을 입력하세요')
+		$("input[name='inPwd']").focus();
+		return;
+	}	
+	
+	if(confirmPassword != pwdCheck) {
+		alert("비밀번호가 틀렸습니다.");
+		$("input[name='inPwd']").focus();
+		return;
+	}
+	
+	if(password != confirmPassword){
+		alert('비밀번호가 일치하지 않습니다')
+		return;
+	}
+    
+    
+    $.ajax({
+        url: "/userSave",
+        type: "post",
+        data: JSON.stringify({
+            id: id,
+            nickName: nickName,
+            email: email,
+            birth: birth,
+            phoneNumber: phoneNumber,
+            password: password
+        }),
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function(data) {
+        	if(data['param'] == 'success'){
+				alert('수정 확인')
+				window.location.href="/main";
+			}
+			
+			if(data['param'] == 'fail'){
+				alert('수정되지 않았습니다')
+				return;
+			}
+        }
+    });
+}
+</script>
 </body>
 </html>

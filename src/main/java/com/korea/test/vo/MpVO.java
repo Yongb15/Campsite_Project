@@ -21,8 +21,8 @@ public class MpVO {
 	private String id;
 	private String nickName;
 	private String password;
-	private Date birth;
+	private String birth;
 	private String phoneNumber;
 	private String email;
-	private String reservationNumber;
+	private int reservationNumber;
 }

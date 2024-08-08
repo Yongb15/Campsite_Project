@@ -33,8 +33,8 @@
 				<div class="signup">회원가입</div>
 			</th:block>
 			<th:block th:unless="${session.id == null}">		<!-- 로그인이 되었는지 확인 -->
-				<div class="myPage" name="myPage">마이페이지</div>
-				<input type="button" value="로그아웃" name="logout">
+				<div class="mypage_a" name="myPage">마이페이지</div>
+				<div class="logout_a" name="logout">로그아웃</div>
 			</th:block>	
 		</div>
 		<div class="events">

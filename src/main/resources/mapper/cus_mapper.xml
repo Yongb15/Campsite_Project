@@ -6,27 +6,23 @@
 	<select id="loginCheck">
 		select * from Customer where id = #{id}
 	</select>
-
-
-	<!-- 한 건 조회 -->
-	<select id="selectList" resultType="mpVO">
-		select * from Customer where idx = #{idx}
+	
+	<!-- 회원 정보 조회 -->
+	<select id="findUserId">
+		select * from Customer where id = #{id}
 	</select>
 
 
 	<!-- 회원 정보 수정 업데이트 -->
-	<update id="customerInfo" parameterType="mpVO">
+	<update id="userSave">
 		update Customer set
-			id = #{id},
-			nickname = #{nickname},
+			nickName = #{nickName},
 			password = #{password},
-			sysdate,
 			phoneNumber = #{phoneNumber},
 			email = #{email}
 		where
-			idx = #{idx}
+			id = #{id}
 	</update>
-
 </mapper>
 
 

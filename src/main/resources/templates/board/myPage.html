@@ -60,7 +60,7 @@ input::placeholder {
 			<div class="form-group">
 				<div class="column">
 					<input type="text" class="user-form" id="myId" name="myId"
-						style="text-align: center;" th:text="${vo.id}"
+						style="text-align: center;" th:field="${vo.id}"
 						readonly="readonly">
 				</div>
 			</div>
@@ -68,7 +68,7 @@ input::placeholder {
 			<div class="form-group">
 				<div class="column">
 					<input type="text" class="user-form" id="myName" name="myName"
-						style="text-align: center;" th:text="${vo.nickName}"
+						style="text-align: center;" th:field="${vo.nickName}"
 						readonly="readonly">
 				</div>
 			</div>
@@ -76,7 +76,7 @@ input::placeholder {
 			<div class="form-group">
 				<div class="column">
 					<input type="text" class="user-form" id="myEmail" name="myEmail"
-						style="text-align: center;" th:text="${vo.email}"
+						style="text-align: center;" th:field="${vo.email}"
 						readonly="readonly">
 				</div>
 			</div>
@@ -84,7 +84,7 @@ input::placeholder {
 			<div class="form-group">
 				<div class="column">
 					<input type="text" class="user-form" id="myBirth" name="myBirth"
-						style="text-align: center;" th:text="${vo.birth}"
+						style="text-align: center;" th:field="${vo.birth}"
 						readonly="readonly">
 				</div>
 			</div>
@@ -92,7 +92,7 @@ input::placeholder {
 			<div class="form-group">
 				<div class="column">
 					<input class="user-form" id="myPhone" name="myPhone"
-						style="text-align: center;" th:text="${vo.phoneNumber}"
+						style="text-align: center;" th:field="${vo.phoneNumber}"
 						readonly="readonly">
 				</div>
 			</div>

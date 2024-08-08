@@ -89,7 +89,7 @@
 	document.getElementById('numberInput').value = 1; // 기본값을 1로 설정
 	
     // 로그아웃
-    let $logoutButton = $("input[name='logout']");
+    let $logoutButton = $("div[name='logout']");
 
 	$logoutButton.on("click", function() {
 		location.href="/logout";

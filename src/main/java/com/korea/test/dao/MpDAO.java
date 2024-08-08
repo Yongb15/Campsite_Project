@@ -16,14 +16,13 @@ public class MpDAO {
 	public MpVO loginCheck(String id) {
 		return mpMapper.loginCheck(id);
 	}
-	
-	
-	public MpVO selectOne (int idx){
-		return mpMapper.selectOne(idx);
+
+	public MpVO findUserId(String id) {
+		return mpMapper.findUserId(id);
 	}
-	
-	
-	public int customerInfo(MpVO vo) {
-		return mpMapper.customerInfo(vo);
+
+
+	public int userSave(MpVO vo) {
+		return mpMapper.userSave(vo);
 	}
 }
