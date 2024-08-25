@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약하기</title>
+    <link href="/css/reservation_form.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+<header>
+    <a href="main" class="logo">
+        <div class="logo">좋 은 캠 핑 장</div>
+    </a>
+    <nav class="menu">
+        <a href="notices_board">공 지 사 항</a>
+        <a href="reservation_form">예 약 하 기</a>
+        <a href="events_board">이 벤 트</a>
+    </nav>
+</header>
+
+<main>
+    <div class="left-section">
+        <div class="auth-section">
+          <h2>회원 관리</h2>
+			<div th:if="${session.id == null}">
+				<a href="/login" class="login_a"><div class="login">로 그 인</div></a>
+				<a href="/signup" class="signup_a"><div class="signup">회 원 가 입</div></a>
+			</div>
+			<div th:unless="${session.id == null}">
+				<div class="mypage_a" name="mypage">내 정 보</div>
+				<div class="logout_a" name="logout">로 그 아 웃</div>
+			</div>
+        </div>
+        <div class="events">
+            <h2>이벤트 게시판</h2>
+            <ul id="events-list" class="events-list">
+                <!-- AJAX로 로드된 이벤트 제목이 여기에 표시됩니다. -->
+            </ul>
+            <div id="pagination">
+                <!-- 페이지 네비게이션이 동적으로 추가됩니다. -->
+            </div>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div id="error-message" th:if="${errorMessage != null}" th:text="${errorMessage}" style="color: red;"></div>
+        <div class="reservation">
+            <form name="reservation_insert" th:action="@{/reservation_insert(id=${id})}" th:object="${vo}" id="reservation-form" method="post">
+                <input type="hidden" id="id" name="id">
+                <input type="hidden" name="price" id="priceHidden">
+                <div class="reservationContainer">
+                    <div class="dateInfo">
+                        <div class="date">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <input type="text" id="datepicker" name="date" placeholder="날짜">
+                        </div>
+                        <div class="person">
+                            <i class="fa-solid fa-person"></i>
+                            <input type="number" min="1" max="10" name="num_people" id="numberInput" placeholder="인원">
+                        </div>
+                        <p id="price" class="price"></p>
+                    </div>
+                    <div>
+                        <div class="test">
+                            <div class="t1" id="checkbox-container"></div>
+                        </div>
+                    </div>    
+                    <div class="buttonContainer">
+                        <input type="button" value="예 약 하 기" id="reserveButton" class="reserveButton"> 
+                        <input type="button" value="취 소" class="cancelButton">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="contact">
+        <p>
+            문의사항이 있으면 전화해 주세요 => 대표자 : 김*빈
+        </p>
+    </div>
+    <div class="weather">
+        <p>
+            <span th:text="${#calendars.format(#calendars.createNow(), 'yyyy년 MM월 dd일')}" id="weather-info"></span>
+        </p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" th:src="@{/js/reservation_form.js}"></script>
+</html>

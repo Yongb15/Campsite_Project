@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	font-family: 'GowunBatang-Regular';
+	-webkit-user-select:none;
+  	-moz-user-select:none;
+  	-ms-user-select:none;
+ 	user-select:none
+}
+
+a{
+	color: #1C7EB7;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #4CAF50;
+}
+	
+.container{
+	margin-top: 100px;
+	text-align: center;
+}	
+
+div.column{
+	margin: 20px;
+}
+
+input::placeholder{
+	color: #A2E882;
+}
+
+.user-form{
+	border-radius: 30px;
+	margin: auto;
+	width: 500px;
+	height: 70px;
+	font-size: 20px;
+	color: #4CAF50;	
+}

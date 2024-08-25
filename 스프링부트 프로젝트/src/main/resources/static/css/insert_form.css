@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	font-family: 'GowunBatang-Regular';
+	background-color: white;
+	box-sizing: border-box;
+	-webkit-user-select:none;
+  	-moz-user-select:none;
+  	-ms-user-select:none;
+ 	user-select:none
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.insertContainer {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.insertBox {
+	border-radius: 14px;
+	width: 30%;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.sendCheckButton {
+	text-align: center;
+    width: 50%;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.subjectBox,
+.nameBox,
+.pwdBox {
+	width: 100%;
+}
+
+.subjectBox > input, 
+.nameBox > input, 
+.pwdBox > input {
+	width: 100%;
+    padding: 10px;
+    margin: 5px 0 5px 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contentBox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50%;
+}
+
+.contentBox > input {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 90%;
+    padding: 10px;
+    margin: 5px 0 5px 0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}

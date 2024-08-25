@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+ 	margin: 0px;
+  	padding: 0px;
+  	text-decoration: none;
+  	font-family:sans-serif;
+  	-webkit-user-select:none;
+  	-moz-user-select:none;
+  	-ms-user-select:none;
+ 	user-select:none
+}
+
+body {
+  	background-image:#34495e;
+}
+
+.joinForm {
+	position:absolute;
+  	width:400px;
+  	height:400px;
+  	padding: 30px, 20px;
+  	background-color:#FFFFFF;
+  	text-align:center;
+  	top:40%;
+  	left:50%;
+  	transform: translate(-50%,-50%);
+  	border-radius: 15px;
+}
+
+.joinForm h1 {
+  	text-align: center;
+  	margin: 30px;
+}
+
+.userInput {
+	width: 100%;
+  	border:none;
+  	outline:none;
+  	color: #636e72;
+  	font-size:16px;
+  	height:25px;
+  	background: none;
+}
+
+.textForm {
+	border-bottom: 2px solid #adadad;
+  	margin: 30px;
+  	padding: 10px 10px;
+}
+
+.signUpButtonBox {
+	margin: 20px;
+}
+
+.signUpButton {
+	width: 80%;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	margin: 0 20px 20px 20px;
+	cursor: pointer;
+}
+
+.mainPageButton {
+	text-align: center;
+	width: 80%;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	margin: 0 20px 20px 20px;
+	cursor: pointer;
+}
+
+.duplicateIdCheck {
+	text-align: center;
+	width: 80%;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	margin: 0 20px 20px 20px;
+	cursor: pointer;
+}

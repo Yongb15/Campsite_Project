@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캠핑장 웹사이트</title>
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body data-session-id="/*[[${session.id}]]*/">
+	<!-- 헤더: 로고와 메뉴를 포함 -->
+	<header>
+		<div class="logo">좋 은  캠 핑 장</div>
+		<nav class="menu">
+			<a href="notices_board">공 지 사 항</a> 
+			<a href="reservation_form" id="reservation-link">예 약 하 기</a>
+			<a href="events_board">이 벤 트</a>
+		</nav>
+	</header>
+	<!-- 메인 콘텐츠 -->
+<main>
+	<input id="reservation_error" type="hidden" th:if="${errorMessage}" class="alert alert-danger" th:value="${errorMessage}" >
+	<div id="success-message" th:if="${successMessage != null}"></div>
+	<!-- 왼쪽 중단: 로그인/회원가입 및 이벤트 게시판 -->
+	<div class="left-section">
+		<div class="auth-section">
+			<h2>회원 관리</h2>
+			<div th:if="${session.id == null}">
+				<a href="/login" class="login_a"><div class="login">로 그 인</div></a>
+				<a href="/signup" class="signup_a"><div class="signup">회 원 가 입</div></a>
+			</div>
+			<div th:unless="${session.id == null}">
+				<div class="mypage_a" name="mypage">내 정 보</div>
+				<div class="logout_a" name="logout">로 그 아 웃</div>
+			</div>
+		</div>
+		<div class="events">
+			<h2>이벤트 게시판</h2>
+			<ul id="events-list" class="events-list">
+                   <!-- AJAX로 로드된 이벤트 제목이 여기에 표시됩니다. -->
+            </ul>
+            <div id="pagination">
+                <!-- 페이지 네비게이션이 동적으로 추가됩니다. -->
+            </div>
+		</div>
+	</div>
+	<div class="right-section">
+		<div class="photo-slider" style="height: 725px;">
+			<div class="slider-container">
+				<div class="slides">
+					<img src="/img/cam1.jpg" alt="Photo 1" class="slide"> 
+					<img src="/img/cam2.jpg" alt="Photo 2" class="slide">
+					<img src="/img/cam3.jpg" alt="Photo 3" class="slide">
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+	<!-- 하단: 문의사항 전화번호와 현재 날짜 -->
+	<footer>
+		<div class="contact">
+			<p>
+				문의사항이 있으면 전화해 주세요 => 대표자 : 김*빈
+			</p>
+		</div>
+		<div class="weather">
+			<p>
+				<span th:text="${#calendars.format(#calendars.createNow(), 'yyyy년 MM월 dd일')}" id="weather-info"></span>
+			</p>
+		</div>
+	</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</html>

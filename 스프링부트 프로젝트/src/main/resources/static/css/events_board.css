@@ -1,0 +1,127 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	font-family: 'GowunBatang-Regular';
+	background-color: white;
+	box-sizing: border-box;
+	-webkit-user-select:none;
+  	-moz-user-select:none;
+  	-ms-user-select:none;
+ 	user-select:none
+}
+
+.eventsBoardContainer {
+	display: felx;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.eventsAllContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.eventsContainer {
+	width: 50%;
+	height: 50%;
+	flex-direction: row; 
+	align-items: center;
+	justify-content: center;
+}
+
+.eventsListContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.eventsList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+}
+
+.eventsList > div {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+}
+
+.tupleList {
+	display: flex;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.tupleList > div {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+}
+
+a {
+	text-decoration : none;
+}
+
+input {
+	border: none;
+}
+
+.ButtonBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.mainPageButton {
+	text-align: center;
+    width: 48%;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.insertText {
+	text-align: center;
+    width: 48%;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.Button_a {
+	display: flex;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+}

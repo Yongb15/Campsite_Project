@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.test.mapper.CustomerMapper">
+	<select id="checkId">
+		SELECT * FROM CUSTOMER where Id= #{id}
+	</select>
+	
+	<insert id="signUpPage">
+		insert into customer values(cus_idx.nextval,
+											#{id},
+											0,
+											#{password},
+											sysdate,
+											0,
+											#{email},
+											0)
+	</insert>
+	
+	<select id="loginCheck">
+		select * from customer where id=#{id}
+	</select>
+	
+	<!-- 회원 정보 조회 -->
+	<select id="findUserId">
+		select * from Customer where id = #{id}
+	</select>
+
+	<!-- 회원 정보 수정 업데이트 -->
+	<update id="userSave">
+		update Customer set
+			nickName = #{nickName},
+			password = #{password},
+			phoneNumber = #{phoneNumber},
+			email = #{email}
+		where
+			id = #{id}
+	</update>
+
+
+	<!-- 회원 탈퇴 -->
+	<delete id="userDel">
+		delete from Customer where id = #{id}
+	</delete>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePwd">
+		update Customer set
+			password = #{password}
+		where
+			id = #{id}
+	</update>
+</mapper>

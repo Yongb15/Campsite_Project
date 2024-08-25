@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.test.mapper.BoardMapper">
+	<!-- 페이지별 게시물 조회
+	순위를 매겨서 1페이지는 1 ~ 10등, 2페이지 11 ~ 20등까지 조회 -->
+	<select id="selectList">
+		SELECT * FROM board
+	</select>
+	<select id="getRowTotal">
+		SELECT COUNT(*) FROM BOARD
+	</select>
+	<select id="selectOne">
+		SELECT * FROM BOARD WHERE IDX = #{idx}
+	</select>
+	<select id="selectSub">	
+		SELECT subject 
+	    FROM BOARD 
+	    WHERE ROWNUM BETWEEN #{start} AND #{end}
+	</select>
+	<update id="update_readhit">
+		UPDATE BOARD
+		SET READHIT = READHIT + 1
+		WHERE IDX = #{idx}
+	</update>
+	<!-- 게시글 등록 쿼리 -->
+    <insert id="insert">
+        INSERT INTO board
+        VALUES (seq_board_idx.nextval,#{subject}, #{name}, #{content}, #{pwd}, SYSDATE, 0, 0)
+    </insert>
+    
+	<delete id="del_update">
+		delete from board
+		WHERE IDX = #{idx}
+	</delete >
+</mapper>

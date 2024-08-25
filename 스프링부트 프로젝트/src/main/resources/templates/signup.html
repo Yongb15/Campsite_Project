@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+<meta charset="UTF-8">
+<title>회원가입 화면</title>
+<link th:href="@{/css/signup.css}" rel="stylesheet" />
+</head>
+<body>
+	<form th:action="@{/signup_page}" name="signUpPage" th:object="${vo}" method="post" class="joinForm">
+		<div class="signUpContainer">
+			<div class="signUpBox">
+				<h1>회원가입</h1>
+				<div class="singUpInnerBox">
+					<div class="textForm">
+						<input th:field="*{id}" class="userInput" placeholder="아이디를 입력하세요">
+					</div>
+					<div class="textForm">
+						<input th:field="*{password}" type="password" class="userInput" placeholder="비밀번호를 입력하세요">
+					</div>
+					<div class="textForm">
+						<input type="password" class="userInput" name="r_userPwdInput" placeholder="비밀번호 확인">
+					</div>
+					<div class="textForm">
+						<input th:field="*{email}" type="text" class="userInput" placeholder="이메일을 입력하세요">
+					</div>
+					<input type="button" value="아이디중복체크" class="duplicateIdCheck" name="id_check">
+					<input type="button" value="회원가입" class="signUpButton" name="signUpCheck">
+					<a href="/main"><input class="mainPageButton" value="메인화면으로 가기>>"></a>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/signup.js}"></script>
+</html>

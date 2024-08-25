@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.test.mapper.ReservationMapper">
+	<insert id="res_insert">
+		insert into reservation values(res_idx.nextval, #{date}, sysdate, #{num_people}, #{camping_idx}, #{price}, #{cus_id, jdbcType=VARCHAR})	
+	</insert>
+	
+	<select id="findReservedSeatsByDate">
+        SELECT camping_idx
+        FROM reservation
+        WHERE "Date" = #{date}
+    </select>
+</mapper>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+<meta charset="UTF-8">
+<title>공지사항</title>
+<link th:href="@{/css/events_board.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="eventsAllContainer">
+		<div class="eventsContainer">
+			<div class="tupleList">
+				<div>번호</div>
+				<div>제목</div>
+				<div>작성자</div>
+				<div>작성일</div>
+				<div>조회수</div>
+			</div>
+			<div class="eventsBoardContainer">
+				<div th:each="vo : ${list}">
+					<div class="eventsListContainer" th:object="${vo}">
+						<div class="eventsList">
+							<div th:text="*{idx}"></div>
+							<div th:if="${vo.delInfo ne -1}">
+								<a th:href="@{/view(idx=*{idx}, page=${param.page})}">
+									<font color="black" th:text="*{subject}"></font>
+								</a>
+							</div>
+							<!-- 삭제된 글은 회색으로 제목만 띄우기(누를 수 없음)
+							delInfo가 -1이면 삭제된걸로 침  -->
+							<div th:if="${vo.delInfo eq -1}">
+								<font color="gray" th:text="*{subject}"></font>
+							</div>
+							<!-- delInfo가 -1이면 unknown으로 나오고
+							-1이 아니면 작성자이름이 출력되도록 작성하기 -->
+							<div th:if="${vo.delInfo eq -1}" th:text="unknown"></div>
+							<div th:unless="${vo.delInfo eq -1}" th:text="*{name}"></div>
+							<!-- 작성날짜 -->
+							<div th:text="${#strings.substring(vo.regdate,0,10)}"></div>
+							<!-- 조회수 -->
+							<div th:text="*{readhit}"></div>
+						</div>
+					</div>
+				</div>
+				<div class="ButtonBox">
+					<a class="Button_a" href="/main"><input value="메인화면으로 가기>>" class="mainPageButton" id="pageMenu"></a>
+					<a class="Button_a" th:href="@{/insert_form(page=${param.page})}">
+						<input value="작성하기" class="insertText">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/events_board.js}"></script>
+</html>

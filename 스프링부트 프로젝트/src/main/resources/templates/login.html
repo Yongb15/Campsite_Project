@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+<meta charset="UTF-8">
+<title>로그인 화면</title>
+<link th:href="@{/css/login.css}" rel="stylesheet" />
+</head>
+<body>
+	<form th:action="@{/loginCheck}" th:object="${vo}" method="post" class="loginForm">
+      <div class="loginContainer">
+         <h1 class="loginHeader">로그인</h1>
+         <div class="textForm">
+            <input th:field="*{id}" type="text" class="userInput" placeholder="아이디를 입력하세요">
+         </div>
+         <div class="textForm">
+         	<input th:field="*{password}" type="password" class="userInput" placeholder="비밀번호를 입력하세요">
+         </div>
+         <input class="loginButton" type="button" name="loginClick" value="로그인">
+         <a href="/main"><input class="mainPageButton" value="메인화면으로 가기>>"></a>
+         <a href="/signup"><input class="signUpPageButton" value="회원가입하러 가기>>"></a>
+   	  </div>
+   </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
+</html>

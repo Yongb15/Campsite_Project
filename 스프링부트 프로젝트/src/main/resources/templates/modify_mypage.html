@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>modify_myPage :: 회원 정보 수정</title>
+<link th:href="@{/css/modify_mypage.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+	<div class="text-main">
+ 		<h1>회원 정보 수정</h1>
+ 	</div>
+	<form class="user" th:action="@{/userSave}" name="f" th:object="${sessionId}" method="post">
+		<input type="hidden" class="user-form" id="idx" name="idx" value="*{idx}">
+ 		<div class="form-group">
+ 			<div class="column">
+	 			<input type="text" class="user-form" id="myId" name="myId"
+	 			       style="text-align: center;" th:value="*{id}"  placeholder="아이디" readonly="readonly">
+ 			</div>
+ 		</div>
+ 		<div class="form-group">
+ 			<div class="column">
+	 			<input type="text" class="user-form" id="myName" name="myName"
+	 			       style="text-align: center;" th:value="*{nickName}"  placeholder="닉네임" >
+ 			</div>
+ 		</div>
+ 		<div class="form-group">
+ 			<div class="column">
+	 			<input type="text" class="user-form" id="myEmail" name="myEmail"
+	 		   	    style="text-align: center;" th:value="*{email}"  placeholder="이메일" >
+ 			</div>
+ 		</div>
+  		<div class="form-group">
+ 			<div class="column">
+	 			<input type="text" class="user-form" id="myBirth" name="myBirth"
+	 		    	   style="text-align: center;" th:value="*{birth}"  placeholder="생일" readonly="readonly">
+ 			</div>
+ 		</div> 
+ 		<div class="form-group">
+ 			<div class="column">
+		 		<input type="text" class="user-form" id="myPhone" name="myPhone"
+	 			       style="text-align: center;" th:value="*{phoneNumber}"  placeholder="전화번호" >
+ 			</div>
+ 		</div>
+  		<div class="form-group">
+ 			<div class="column">
+		 		<input type="text" class="user-form" id="myPwd" name="myPwd"
+	 			       style="text-align: center;"  placeholder="비밀번호" required>
+ 			</div>
+ 		</div>
+ 		<div class="form-group">
+ 			<div class="column">
+	 			<input type="text" class="user-form" id="inPwd" name="inPwd"
+	 			       style="text-align: center;"   placeholder="비밀번호 확인" required>
+ 			</div>
+ 		</div>
+ 		<a href="#" class="save-btn" onclick="fSubmit();" >변경사항 저장하기 &emsp;</a>
+ 		<a th:href="@{main}" class="btn_userMain" >메인으로 가기</a>
+	</form>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/modify_mypage.js}"></script>
+</html>

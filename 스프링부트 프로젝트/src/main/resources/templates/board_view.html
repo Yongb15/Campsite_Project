@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link th:href="@{/css/board_view.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="center">
+		<div class="div_box">
+			<div class="div_sub">
+				<div th:text="${vo.subject}" class="text_center"></div>
+			</div>
+			<div class="div_row">
+				
+				<div class="div_name">
+				<i class="fa-solid fa-pen">&nbsp</i>
+					<div class="name_style" th:text="${vo.name}"></div>
+				</div>
+				<div class="div_reg">
+					<i class="fa-regular fa-calendar-days">&nbsp</i>	
+					<div th:text="${vo.regdate}"></div>
+				</div>
+			</div>
+			<div class="div_con">
+				<div th:text="${vo.content}" class="div_con2"></div>
+			</div>
+			<div class="div_pass">
+				<div class="pass_box">비밀번호</div>
+				<div class="pass_box"><input type="password" id="c_pwd"></div>
+				<div class="pass_box">
+					<a th:href="@{/events_board(page=${param.page})}">
+						<button>목록</button>
+					</a>
+				</div>
+				<div class="pass_box">	
+					<a><button id="del">삭제</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/board_view.js}"></script>
+</html>	

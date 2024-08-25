@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/insert_form.css}" rel="stylesheet" />
+</head>
+<body>
+	<form name="f" th:action="@{/insert}" th:object="${vo}" method="POST">
+		<input type="hidden" id="page" th:value="${param.page}">
+		<div class="insertContainer">
+			<div class="insertBox">
+				<div class="subjectBox">
+					<input id="subject" autocomplete="off" placeholder="제목">
+				</div>
+				<div class="nameBox">
+					<input id="name" autocomplete="off" placeholder="작성자">
+				</div>
+				<div class="contentBox">
+					<input id="content" autocomplete="off" placeholder="내용을 입력하세요">
+				</div>
+				<div class="pwdBox">
+					<input id="pwd" type="password" autocomplete="off" placeholder="비밀번호">
+				</div>
+				<input value="등록하기" class="sendCheckButton" id="send_check">
+			</div>
+		</div>
+	</form>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/insert_form.js}"></script>
+</html>

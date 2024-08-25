@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>USER withdraw :: 회원 탈퇴</title>
+
+<link th:href="@{/css/user_withdraw.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+	 <div class="text-main">
+ 		<h1>회원 탈퇴</h1>
+ 	 </div>
+	<form class="user" th:action="@{/userDelete}" name="f" th:object="${sessionId}" method="get">
+		<input type="hidden" class="user-form" id="id" name="myId" value="*{id}">		
+		<div calss="wrap">		
+			<div class="user_cancel">
+				<p class="lead">회원 탈퇴를 하시려면 비밀번호를 입력해주세요</p>					
+			<div class="form-group">
+		 		<div class="column">
+			 		<input type="text" class="user-form" id="myPwd" name="myPwd"
+			 		       style="text-align: center;"  placeholder="비밀번호" required>
+		 		</div>
+		 	</div>		 	
+		 	<div class="form-group">
+		 		<div class="column">
+			 		<input type="text" class="user-form" id="inPwd" name="inPwd"
+			 		       style="text-align: center;"   placeholder="비밀번호 확인" required>
+		 		</div>
+		 	</div>			
+				<a href="#" class="delete-btn" onclick="userDel();">회원 탈퇴 &emsp;</a>
+				<a th:href="@{main}" class="btn_userMain" >메인으로 가기</a>
+			
+			</div>			
+		</div>	
+	</form>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript" th:src="@{/js/user_withdraw.js}"></script>
+</html>

@@ -1,0 +1,86 @@
+@charset "UTF-8";
+* {
+ 	margin: 0px;
+  	padding: 0px;
+  	text-decoration: none;
+  	font-family:sans-serif;
+  	-webkit-user-select:none;
+  	-moz-user-select:none;
+  	-ms-user-select:none;
+ 	user-select:none
+}
+
+body {
+  	background-color: white;
+}
+
+.loginForm {
+	position:absolute;
+  	width:400px;
+  	height:400px;
+  	padding: 30px, 20px;
+  	background-color:#FFFFFF;
+  	text-align:center;
+  	top:40%;
+  	left:50%;
+  	transform: translate(-50%,-50%);
+  	border-radius: 15px;
+}
+
+.loginForm h1 {
+	text-align: center;
+  	margin: 30px;
+}
+
+.whatPassword {
+	font-size: 15px;
+}
+
+.userInput {
+	width: 100%;
+  	border:none;
+  	outline:none;
+  	color: #636e72;
+  	font-size:16px;
+  	height:25px;
+  	background: none;
+}
+
+.textForm {
+	border-bottom: 2px solid #adadad;
+  	margin: 30px;
+  	padding: 10px 10px;
+}
+
+.loginButton {
+	width: 80%;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	margin: 0 20px 20px 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.mainPageButton {
+	text-align: center;
+	width: 80%;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	margin: 0 20px 20px 20px;
+	cursor: pointer;
+}
+
+.signUpPageButton {
+	text-align: center;
+	width: 80%;
+	height: 30px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 4px;
+	margin: 0 20px 20px 20px;
+	cursor: pointer;
+}
